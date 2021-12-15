@@ -1,3 +1,4 @@
+import 'package:chat_app_flutter/components/custom_text.dart';
 import 'package:chat_app_flutter/main_pages/call_page/call_page.dart';
 import 'package:chat_app_flutter/main_pages/chat_page/chat_page.dart';
 import 'package:chat_app_flutter/main_pages/profile_page/profile_page.dart';
@@ -54,29 +55,56 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Appbar
+      appBar: AppBar(
+        title: CustomText(text: "Best Chat"),
+      ),
+
+      //Drower
+      drawer: Drawer(),
+
+      //body
       body: _widgetOptions.elementAt(_selectedIndex),
+
+      //Floating Action Button for add contact
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+      //Bottom Navbar
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
               Icons.forum,
-              size: 25,
+              size: 30,
             ),
             label: 'Chat',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.phone),
+            icon: Icon(
+              Icons.phone,
+              size: 30,
+            ),
             label: 'Call',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
+            icon: Icon(
+              Icons.person,
+              size: 30,
+            ),
             label: 'Profile',
+            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(
+              Icons.settings,
+              size: 30,
+            ),
+            label: 'Setting',
+            backgroundColor: Colors.blue,
           ),
         ],
         currentIndex: _selectedIndex,
