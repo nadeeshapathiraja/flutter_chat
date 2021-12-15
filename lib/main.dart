@@ -1,3 +1,7 @@
+import 'package:chat_app_flutter/main_pages/call_page/call_page.dart';
+import 'package:chat_app_flutter/main_pages/chat_page/chat_page.dart';
+import 'package:chat_app_flutter/main_pages/profile_page/profile_page.dart';
+import 'package:chat_app_flutter/main_pages/settings_page/settings_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,22 +38,10 @@ class _MainPageState extends State<MainPage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: School',
-      style: optionStyle,
-    ),
+    ChatPage(),
+    CallPage(),
+    ProfilePage(),
+    SettingsPage(),
   ];
 
 //Bottomnavbar item Ontap Function
