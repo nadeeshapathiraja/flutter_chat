@@ -1,4 +1,5 @@
 import 'package:chat_app_flutter/components/custom_text.dart';
+import 'package:chat_app_flutter/create_contact/create_contact.dart';
 import 'package:chat_app_flutter/main_pages/call_page/call_page.dart';
 import 'package:chat_app_flutter/main_pages/chat_page/chat_page.dart';
 import 'package:chat_app_flutter/main_pages/profile_page/profile_page.dart';
@@ -45,10 +46,13 @@ class _MainPageState extends State<MainPage> {
     SettingsPage(),
   ];
 
+  Widget? page;
+
 //Bottomnavbar item Ontap Function
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      page = null;
     });
   }
 
@@ -61,16 +65,21 @@ class _MainPageState extends State<MainPage> {
       ),
 
       //Drower
-      drawer: Drawer(),
-
-      //body
-      body: _widgetOptions.elementAt(_selectedIndex),
+      drawer: const Drawer(),
 
       //Floating Action Button for add contact
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          setState(() {
+            page = const CreateContact();
+          });
+        },
         child: const Icon(Icons.add),
       ),
+
+      //body
+      body: (page == null) ? _widgetOptions.elementAt(_selectedIndex) : page,
+
       //Bottom Navbar
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
