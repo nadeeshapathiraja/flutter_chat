@@ -4,9 +4,11 @@ import 'package:chat_app_flutter/main_pages/call_page/call_page.dart';
 import 'package:chat_app_flutter/main_pages/chat_page/chat_page.dart';
 import 'package:chat_app_flutter/main_pages/profile_page/profile_page.dart';
 import 'package:chat_app_flutter/main_pages/settings_page/settings_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
