@@ -4,11 +4,9 @@ import 'package:chat_app_flutter/main_pages/call_page/call_page.dart';
 import 'package:chat_app_flutter/main_pages/chat_page/chat_page.dart';
 import 'package:chat_app_flutter/main_pages/profile_page/profile_page.dart';
 import 'package:chat_app_flutter/main_pages/settings_page/settings_page.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-Future<void> main() async {
-  await Firebase.initializeApp();
+void main() {
   runApp(const MyApp());
 }
 
@@ -63,7 +61,8 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       //Appbar
       appBar: AppBar(
-        title: CustomText(text: "Best Chat"),
+        elevation: 4,
+        title: const CustomText(text: "Best Chat"),
       ),
 
       //Drower
