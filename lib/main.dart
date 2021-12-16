@@ -4,6 +4,7 @@ import 'package:chat_app_flutter/main_pages/call_page/call_page.dart';
 import 'package:chat_app_flutter/main_pages/chat_page/chat_page.dart';
 import 'package:chat_app_flutter/main_pages/profile_page/profile_page.dart';
 import 'package:chat_app_flutter/main_pages/settings_page/settings_page.dart';
+import 'package:chat_app_flutter/splash_screen_page/splash_screen_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         primarySwatch: Colors.blue,
       ),
-      home: const MainPage(),
+      home: const SplashScreen(),
     );
   }
 }
