@@ -11,7 +11,7 @@ class LogoSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Pulse(
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
       child: Container(
         width: 150,
         height: 150,
@@ -20,8 +20,8 @@ class LogoSection extends StatelessWidget {
           borderRadius: BorderRadius.circular(50),
         ),
         child: Roulette(
-          delay: Duration(seconds: 2),
-          duration: Duration(seconds: 3),
+          delay: const Duration(seconds: 2),
+          duration: const Duration(seconds: 3),
           child: const CustomImage(
             image: "logo.png",
             width: 130,
