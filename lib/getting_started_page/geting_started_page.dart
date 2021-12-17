@@ -1,6 +1,7 @@
 import 'package:chat_app_flutter/authentication/login_page/login_page.dart';
 import 'package:chat_app_flutter/components/custom_button.dart';
 import 'package:chat_app_flutter/components/custom_text_button.dart';
+import 'package:chat_app_flutter/getting_started_page/widgets/bottom_section.dart';
 import 'package:chat_app_flutter/getting_started_page/widgets/slider_items.dart';
 import 'package:chat_app_flutter/utils/app_colors.dart';
 import 'package:chat_app_flutter/utils/constants.dart';
@@ -68,8 +69,8 @@ class _GettingStartedState extends State<GettingStarted> {
                   child: Container(
                     width: 12.0,
                     height: 12.0,
-                    margin:
-                        EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 4.0),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: (Theme.of(context).brightness == Brightness.dark
@@ -90,64 +91,12 @@ class _GettingStartedState extends State<GettingStarted> {
               onSkipTap: () {
                 utilFunction.pushRemoveRoute(
                   context,
-                  LoginPage(),
+                  const LoginPage(),
                 );
               },
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class BottomSection extends StatelessWidget {
-  const BottomSection({
-    Key? key,
-    required this.onNextTap,
-    required this.onSkipTap,
-  }) : super(key: key);
-
-  final Function() onNextTap;
-  final Function() onSkipTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Stack(
-        children: [
-          Image.asset(
-            Constants.imageAssets("bottom.png"),
-            width: double.infinity,
-            fit: BoxFit.fitWidth,
-          ),
-          Positioned(
-            bottom: 50,
-            right: 30,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                //Next Button
-                CustomButton(
-                  ontap: onNextTap,
-                  text: "Next",
-                  width: 120,
-                  height: 50,
-                  color: kwhite,
-                  fontSize: 20,
-                ),
-                //Skip button
-                CustomTextButton(
-                  ontap: onSkipTap,
-                  text: "Skip",
-                  color: kBlack,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w900,
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }
