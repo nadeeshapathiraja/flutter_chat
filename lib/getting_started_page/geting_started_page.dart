@@ -1,5 +1,6 @@
 import 'package:chat_app_flutter/components/custom_button.dart';
 import 'package:chat_app_flutter/components/custom_text.dart';
+import 'package:chat_app_flutter/components/custom_text_button.dart';
 import 'package:chat_app_flutter/utils/app_colors.dart';
 import 'package:chat_app_flutter/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,9 @@ class _GettingStartedState extends State<GettingStarted> {
                 ),
                 Positioned(
                   bottom: 50,
+                  right: 30,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       CustomButton(
                         ontap: () {},
@@ -38,6 +41,13 @@ class _GettingStartedState extends State<GettingStarted> {
                         color: kwhite,
                         fontSize: 20,
                       ),
+                      CustomTextButton(
+                        ontap: () {},
+                        text: "Skip",
+                        color: kBlack,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
+                      )
                     ],
                   ),
                 )
