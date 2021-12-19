@@ -1,3 +1,4 @@
+import 'package:chat_app_flutter/authentication/login_page/login_page.dart';
 import 'package:chat_app_flutter/components/custom_text.dart';
 import 'package:chat_app_flutter/create_contact/create_contact.dart';
 import 'package:chat_app_flutter/main_pages/call_page/call_page.dart';
@@ -19,12 +20,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
         brightness: Brightness.light,
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen(),
+      home: const LoginPage(),
     );
   }
 }
