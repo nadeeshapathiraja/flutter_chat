@@ -1,5 +1,14 @@
+import 'package:chat_app_flutter/authentication/frogot_password_page/frogot_password.dart';
+import 'package:chat_app_flutter/authentication/register_page/register_page.dart';
+import 'package:chat_app_flutter/components/custom_button.dart';
+import 'package:chat_app_flutter/components/custom_inputfield.dart';
+import 'package:chat_app_flutter/components/custom_password_field.dart';
+import 'package:chat_app_flutter/components/custom_phonenumber_input.dart';
 import 'package:chat_app_flutter/components/custom_text.dart';
+import 'package:chat_app_flutter/main_pages/call_page/call_page.dart';
+import 'package:chat_app_flutter/utils/app_colors.dart';
 import 'package:chat_app_flutter/utils/constants.dart';
+import 'package:chat_app_flutter/utils/util_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
@@ -16,79 +25,100 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController phoneNumberController = TextEditingController();
   String initialCountry = 'LK';
   PhoneNumber number = PhoneNumber(isoCode: 'LK');
+  final TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          Image.asset(
-            Constants.imageAssets("header.png"),
-            width: double.infinity,
-            fit: BoxFit.fitWidth,
+          Stack(
+            children: [
+              CustomText(text: "Sign In"),
+              Image.asset(
+                Constants.imageAssets("header.png"),
+                width: double.infinity,
+                fit: BoxFit.fitWidth,
+              ),
+            ],
           ),
-          Container(
-            padding: EdgeInsets.all(25),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomText(
-                  text: "Enter Phone Number",
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+          Expanded(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Container(
+                padding: EdgeInsets.all(25),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CustomText(
+                      text: "Enter Mobile Number",
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    const SizedBox(height: 20),
+                    PhoneNumberInputSection(
+                      number: number,
+                      phoneNumberController: phoneNumberController,
+                    ),
+                    const SizedBox(height: 30),
+                    const CustomText(
+                      text: "Enter Password",
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    const SizedBox(height: 20),
+                    CustomPasswordField(password: password),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        const CustomText(text: "Frogot Your Password"),
+                        InkWell(
+                          child: CustomText(
+                            text: " Click here..",
+                            color: kblue,
+                          ),
+                          onTap: () {
+                            utilFunction.navigateTo(
+                                context, const FrogotPassword());
+                          },
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    //login button
+                    CustomButton(
+                      text: "Sign In",
+                      ontap: () {
+                        utilFunction.navigateTo(context, const CallPage());
+                      },
+                      width: double.infinity,
+                      height: 60,
+                      fontSize: 20,
+                      color: kblue,
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        const CustomText(text: "New User"),
+                        InkWell(
+                          child: CustomText(
+                            text: " Register Now",
+                            color: kblue,
+                          ),
+                          onTap: () {
+                            utilFunction.navigateTo(
+                                context, const RegisterPage());
+                          },
+                        )
+                      ],
+                    ),
+                  ],
                 ),
-                SizedBox(height: 10),
-                PhoneNumberInputSection(
-                  number: number,
-                  phoneNumberController: phoneNumberController,
-                ),
-              ],
+              ),
             ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class PhoneNumberInputSection extends StatelessWidget {
-  const PhoneNumberInputSection({
-    Key? key,
-    required this.number,
-    required this.phoneNumberController,
-  }) : super(key: key);
-
-  final PhoneNumber number;
-  final TextEditingController phoneNumberController;
-
-  @override
-  Widget build(BuildContext context) {
-    return InternationalPhoneNumberInput(
-      onInputChanged: (PhoneNumber number) {
-        print(number.phoneNumber);
-      },
-      onInputValidated: (bool value) {
-        print(value);
-      },
-      selectorConfig: SelectorConfig(
-        selectorType: PhoneInputSelectorType.DIALOG,
-      ),
-      ignoreBlank: false,
-      autoValidateMode: AutovalidateMode.disabled,
-      selectorTextStyle: TextStyle(color: Colors.black),
-      initialValue: number,
-      maxLength: 9,
-      textFieldController: phoneNumberController,
-      formatInput: false,
-      hintText: "770000000",
-      keyboardType: const TextInputType.numberWithOptions(
-        signed: true,
-        decimal: true,
-      ),
-      inputBorder: const OutlineInputBorder(),
-      onSaved: (PhoneNumber number) {
-        print('On Saved: $number');
-      },
     );
   }
 }
