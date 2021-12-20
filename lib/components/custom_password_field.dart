@@ -22,7 +22,7 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
       obscureText: _isObscure,
       style: const TextStyle(
         fontSize: 20,
-        height: 1,
+        height: 0.6,
       ),
       decoration: InputDecoration(
         suffix: InkWell(
