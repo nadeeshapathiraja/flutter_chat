@@ -5,7 +5,7 @@ import 'package:chat_app_flutter/components/custom_header.dart';
 import 'package:chat_app_flutter/components/custom_password_field.dart';
 import 'package:chat_app_flutter/components/custom_phonenumber_input.dart';
 import 'package:chat_app_flutter/components/custom_text.dart';
-import 'package:chat_app_flutter/main_pages/call_page/call_page.dart';
+import 'package:chat_app_flutter/main.dart';
 import 'package:chat_app_flutter/utils/app_colors.dart';
 import 'package:chat_app_flutter/utils/util_functions.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +27,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         children: [
@@ -81,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                     CustomButton(
                       text: "Sign In",
                       ontap: () {
-                        utilFunction.navigateTo(context, const CallPage());
+                        utilFunction.navigateTo(context, const MainPage());
                       },
                       width: double.infinity,
                       height: 60,
