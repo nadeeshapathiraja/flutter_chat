@@ -14,8 +14,25 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return ChatTileSetion();
+      },
+      itemCount: 10,
+      shrinkWrap: true,
+    );
+  }
+}
+
+class ChatTileSetion extends StatelessWidget {
+  const ChatTileSetion({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
       child: Container(
         width: double.infinity,
         height: 70,
