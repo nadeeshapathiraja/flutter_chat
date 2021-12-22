@@ -1,5 +1,6 @@
 import 'package:chat_app_flutter/components/custom_image.dart';
 import 'package:chat_app_flutter/components/custom_text.dart';
+import 'package:chat_app_flutter/utils/app_colors.dart';
 import 'package:chat_app_flutter/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class _ChatPageState extends State<ChatPage> {
       padding: EdgeInsets.all(10),
       child: Container(
         width: double.infinity,
-        height: 100,
+        height: 70,
         child: Padding(
           padding: const EdgeInsets.all(5.0),
           child: Row(
@@ -26,23 +27,55 @@ class _ChatPageState extends State<ChatPage> {
                 borderRadius: BorderRadius.circular(1000.0),
                 child: Image.asset(
                   Constants.imageAssets("person.jpg"),
-                  width: 90,
-                  height: 90,
+                  width: 60,
+                  height: 60,
                   fit: BoxFit.cover,
                 ),
               ),
-              Column(
-                children: [
-                  CustomText(
-                    text: "Sumudu Sadakelum",
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomText(
+                        text: "Sumudu Sadakelum",
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      SizedBox(height: 5),
+                      CustomText(
+                        text: "Have a good one!",
+                        fontSize: 14,
+                      ),
+                    ],
                   ),
-                  CustomText(
-                    text: "Have a good one!",
-                    fontSize: 14,
-                  ),
-                ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        CustomText(
+                          text: "2021-12-31",
+                          fontSize: 13,
+                        ),
+                        CustomText(
+                          text: "4.30 pm",
+                          fontSize: 12,
+                        )
+                      ],
+                    ),
+                    Icon(
+                      Icons.done_all,
+                      color: kblue,
+                      size: 14,
+                    )
+                  ],
+                ),
               ),
             ],
           ),
