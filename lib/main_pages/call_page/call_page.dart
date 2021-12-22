@@ -13,6 +13,23 @@ class CallPage extends StatefulWidget {
 class _CallPageState extends State<CallPage> {
   @override
   Widget build(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return CallTileSection();
+      },
+      itemCount: 4,
+      shrinkWrap: true,
+    );
+  }
+}
+
+class CallTileSection extends StatelessWidget {
+  const CallTileSection({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {},
       child: Container(
