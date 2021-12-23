@@ -7,7 +7,7 @@ class CustomButton extends StatelessWidget {
     Key? key,
     required this.text,
     this.borderRadius = 15,
-    this.color,
+    this.color = kblue,
     this.fontSize,
     this.height,
     this.width,
